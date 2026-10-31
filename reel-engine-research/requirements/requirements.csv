@@ -1,0 +1,59 @@
+requirement_id,source_section,precise_requirement,priority,verification_method,acceptance_criterion,ambiguity_decision_needed
+REQ-001,§1 §9.1,"Turn script or narration audio into finished vertical 9:16 video (.mp4)",MUST,Integration test,Complete playable MP4 with synchronized visuals,None
+REQ-002,§1,Publishing directly to social platforms is a non-goal for v0.1,NON-GOAL,Inspection,No publishing API endpoints in v0.1,Deferred to v1+
+REQ-003,§1,Platform analytics ingestion is a non-goal for v0.1,NON-GOAL,Inspection,No analytics scraping or webhooks in v0.1,Deferred to v1+
+REQ-004,§1,Multi-language typography shaping is a non-goal for v0.1,NON-GOAL,Inspection,Latin English fonts prioritized in starter presets,Deferred
+REQ-005,§1 §10,Coding agent acts as director while MCP and UI act as production crew,MUST,Protocol test,Server enforces state machine and quality gates,None
+REQ-DOC-01,§3 Rule 1,Require a single-sentence core idea before planning proceeds,MUST,Schema validation,Project IR has core_idea without conjunction splitting ("and"),Linter warning on "and"
+REQ-DOC-02,§3 Rule 2 3,Hook lands event in frame 1 and completes promise by second 3.0,MUST,Automated IR & Frame QA,Visual event at frame 0 and complete within hook_complete_s * fps,Preset-configurable
+REQ-DOC-03,§3 Rule 4 §6,Timeline must not exceed max_static_s without visual change event,MUST,Deterministic Linter,Delta between visual events <= max_static_s * fps,Frame difference verification
+REQ-DOC-04,§3 Rule 6 8,Text and key visuals strictly inside safe zone and 3:4 crop,MUST,Bounding box & pixel QA,Zero text in top 14% bottom 35% side 6% and horizontal 3:4,Hard blocking gate
+REQ-DOC-05,§3 Rule 9,Scene plan should include at least one send moment,SHOULD,Schema check,At least one scene has send_moment: true,Advisory if omitted
+REQ-DOC-06,§3 Rule 10 11,End on payoff without conversational sign-off and design loop,SHOULD,Rubric check,Final scene is payoff or loop; rubric validates loop,Self-review rubric
+REQ-DOC-07,§3 Rule 12,Consistent motion language easing family and palette across renderers,MUST,Style token validation,All scenes import shared tokens from central ProjectConfig,Cross-renderer token sharing
+REQ-CFG-01,§4.1 §4.2,Independent modular preset layers (Format Duration Pacing Style Captions),MUST,JSON Schema / Zod,Valid schema accepting overrides without breaking others,Complete schema contract
+REQ-CFG-02,§4.1,Default format preset reel_9x16 (1080x1920 @ 30fps safe zones 3:4 crop),MUST,Unit test,Format preset matches specified values,Overridable for future formats
+REQ-CFG-03,§4.1,Pacing presets parameterize hook and change interval thresholds,MUST,Unit test,Presets load distinct numeric thresholds,Empirical tuning
+REQ-CFG-04,§4.3,Bundle 4 starter presets: Quick Tip Explainer Story Concept Animation,MUST,Catalog test,All 4 presets available in catalog,Complete definitions required
+REQ-SIR-01,§5.1,Support canonical scene types (hook setup beat proof reset payoff cta_loop),MUST,Schema validation,Unknown scene types rejected,Extensibility rules
+REQ-SIR-02,§5.2,Scene fields (id type start_frame end_frame narration intent renderer layout),MUST,Schema validation,Valid JSON structure matching section 5.2 schema,Non-negative integer frames
+REQ-SIR-03,§5.2,Record frame-accurate visual event landmarks in events array,MUST,Schema & Linter,Events mapped to frame clock and validated against static limit,Used for change budget
+REQ-TIM-01,§6 Rule 1 2,Audio is master clock; all positions and boundaries stored in integer frames,MUST,Unit & drift test,Total duration matches audio; zero accumulated drift,Rejects sub-frame floats
+REQ-TIM-02,§6 Rule 1,Transcribe audio using Whisper to generate word timestamps,MUST,Integration test,Returns words with start and end times in frames,Local or container Whisper
+REQ-TIM-03,§6 Rule 3,Optional silence pause tightening before planning,SHOULD,Unit test,Silences above threshold tightened before quantization,Configurable parameter
+REQ-TIM-04,§6 Rule 4,Scene cuts snap to speech phrase ends with lead frames,MUST,Timing test,Scene cuts fall within phrase end tolerance,Tunable lead frames
+REQ-REN-01,§9.2,Route general motion graphics charts UI mockups and captions to Remotion,MUST,Routing test,Remotion worker compiles TSX scene to clip,Phase B implementation
+REQ-REN-02,§9.2,Route math geometry coordinate transforms and science to Manim,MUST,Routing test,Manim worker executes Python script to clip,Phase B implementation
+REQ-REN-03,§9.2,Render each scene as an independent isolated video clip without audio,MUST,File inspection,Scene directory contains isolated mute MP4 clips,Audio mixed in compose
+REQ-REN-04,§9.2,Shared helper library for Remotion and Manim with consistent tokens,MUST,API review,Shared styling tokens produce identical colors and safe bounds,Coordinate bridge
+REQ-TRN-01,§7.1,Implement transition library (hard_cut zoom_punch swipe mask_reveal match_cut),MUST,Transition test,Transitions render correctly at specified durations,Presets limit heavy cuts
+REQ-TRN-02,§7.1,Heavy transitions limited by preset budget (max_heavy_per_10s),MUST,Deterministic Linter,Linter rejects IR with excessive heavy transitions,Blocking QA check
+REQ-TRN-03,§7.2,Element entrances ease out (fast start soft landing 6-12 frames),MUST,Helper test,Default entrance easing curve satisfies fast start soft landing,Shared helper library
+REQ-TYP-01,§8,Captions phrase-based (capped at ~7 words) with keyword highlighting,MUST,Caption test,Caption chunks contain 1 to 7 words with keyword highlight,Section 8 spec
+REQ-TYP-02,§8,Text elements satisfy minimum reading dwell time (17-20 chars/sec),MUST,Deterministic Linter,Duration in frames >= (chars / reading_speed) * fps,Blocks fast disappearing text
+REQ-TYP-03,§8,Rendered text satisfies contrast ratio against background pixels,MUST,Pixel sampling QA,Sampled text pixel contrast meets minimum threshold,Frame-quality analysis
+REQ-QA-01,§11,Render completion gate: process exits 0 producing valid MP4 clip,MUST,Exit code test,Zero non-zero exit codes; clip file valid on disk,BLOCKING GATE
+REQ-QA-02,§11,Duration match gate: rendered frame count equals planned duration,MUST,ffprobe frame count,actual_frames == planned_frames,BLOCKING GATE
+REQ-QA-03,§11,Hook event gate: hook scene contains visual event within deadline,MUST,IR & frame check,Event exists at frame <= hook_deadline_frames,BLOCKING GATE
+REQ-QA-04,§11,Static interval gate: video must not exceed max_static_s without change,MUST,Frame difference test,Pixel variance within sliding window exceeds threshold,BLOCKING GATE
+REQ-QA-05,§11,Safe zone & crop gate: text strictly inside safe zone and 3:4 crop,MUST,Bounding box check,Zero text in top 14% bottom 35% side 6%,BLOCKING GATE
+REQ-QA-06,§11,Audio loudness gate: normalize to -14 LUFS (+-1 LUFS) true-peak <= -1 dBTP,MUST,FFmpeg loudnorm,Output audio matches EBU R128 criteria,BLOCKING GATE
+REQ-QA-07,§11,Transition budget gate: heavy transitions within preset threshold,MUST,IR check,Count of heavy cuts within allowed budget,BLOCKING GATE
+REQ-QA-08,§11,Advisory visual review gate: vision model analyzes clutter and appeal,SHOULD,Model evaluation,Findings formatted as advisory report; does not block,Advisory only
+REQ-CMP-01,§9.1 §9.3,Compose concatenates clips burns captions and mixes audio via FFmpeg,MUST,Compose test,Final MP4 contains scenes burned captions and audio,Pure FFmpeg muxing
+REQ-CMP-02,§9.3,Content-address and cache scene clips by hash of IR code style and audio,MUST,Cache hit test,Modifying scene N re-renders only scene N,Multi-tier SHA-256
+REQ-CMP-03,§9.4,Post-production edits stored as non-destructive edit list applied at export,MUST,Export test,Original scene clips untouched; export applies edit list,Stored in project state
+REQ-CMP-04,§9.3,Support draft renders (540x960@24) and final export (1080x1920@30),MUST,Render profile test,Draft renders complete faster; final export at full res,Preset profiles
+REQ-MCP-01,§12.1,Strict linear phase progression (input->transcribed->planned->authored->etc),MUST,State machine test,Out-of-order tool calls refused with prerequisite error,Blocking state machine
+REQ-MCP-02,§12.1,Every tool response returns phase status next_step blocked_by envelope,MUST,Tool schema test,All tool responses conform to unified envelope schema,Standard response
+REQ-MCP-03,§12.1,Provide get_next_step tool to re-sync agent that lost context,MUST,Recovery test,Returns current phase blockers and next recommended tool,Recovery capability
+REQ-MCP-04,§12.2,Expose core tools (init_project transcribe tts submit_plan render_scene etc),MUST,Catalog test,All 13 core tools registered and discoverable,Section 12.2 tools
+REQ-MCP-05,§10.3,Require submit_review rubric before compose with no zero scores,MUST,Gate test,Compose blocked if rubric has any score 0 or below minimum,Quality rubric gate
+REQ-UI-01,§12.3,UI displays project phase scene list render status and timeline,MUST,UI test,UI components render project state correctly,Read-only state display
+REQ-UI-02,§12.3,UI displays deterministic lint reports with scene ID and suggested fixes,MUST,UI test,Errors clearly highlighted on affected scenes,Visual diagnostics
+REQ-UI-03,§12.3,UI provides integrated video preview player for clips and export,MUST,UI test,Video playback functional in browser,Video player integration
+REQ-UI-04,§12.3,UI generates bootstrap prompts for coding agent for each phase,MUST,Prompt test,Copies actionable bootstrap prompt with get_next_step,Agent bridge
+REQ-UI-05,§12.3,UI offers non-destructive post-production controls (reorder trim toggle),SHOULD,UI test,Edits update edit list without re-rendering clips,Post-production
+REQ-SEC-01,§9.3,AST sandbox blocks dangerous Python modules builtins and dunders,MUST,AST Security test,Malicious Python scripts rejected prior to execution,Inherits manim-mcp
+REQ-SEC-02,§9.3,Rendering processes run sandboxed with restricted fs and no network,MUST,Sandbox audit,Scene renderer cannot access network or external files,Isolation
+REQ-LIC-01,§9.2,Clean licensing boundaries; no AGPL code linked directly into core engine,MUST,License audit,All core packages MIT Apache-2.0 or BSD,Remotion license verified

@@ -1,0 +1,15 @@
+ticket_id,title,phase,requirement_ids,owner_role,dependencies,estimate_days_likely,risk_level
+TCK-A01,ProjectConfig and Preset Schema Implementation,Phase A,"REQ-CFG-01, REQ-CFG-02, REQ-CFG-03, REQ-CFG-04",Backend Engineer,None,2,Low
+TCK-A02,Scene IR Schema and Hand-Authored Vertical Slice,Phase A,"REQ-001, REQ-SIR-01, REQ-SIR-02, REQ-TIM-01, REQ-CMP-01",Video Systems Engineer,TCK-A01,3,Medium
+TCK-B01,AST Python Code Sandbox for Manim,Phase B,"REQ-SEC-01, REQ-SEC-02",Security / Python Engineer,None,2,Low
+TCK-B02,Dual-Renderer Adapter and Shared Helper Libraries,Phase B,"REQ-REN-01, REQ-REN-02, REQ-REN-03, REQ-REN-04, REQ-TRN-03",Full-Stack Video Engineer,"TCK-A02, TCK-B01",4,Medium
+TCK-C01,Whisper Transcription and Phrase-End Snapping Solver,Phase C,"REQ-TIM-01, REQ-TIM-02, REQ-TIM-03, REQ-TIM-04",Audio Engineer,TCK-A02,4,Medium
+TCK-D01,Safe Area Reading Dwell Time and Loudness Gates,Phase D,"REQ-DOC-04, REQ-TYP-02, REQ-QA-01, REQ-QA-02, REQ-QA-05, REQ-QA-06",QA Engineer,"TCK-B02, TCK-C01",4,Low
+TCK-D02,Frame Contrast and Static Window Detection Gates,Phase D,"REQ-DOC-03, REQ-TYP-03, REQ-QA-03, REQ-QA-04, REQ-QA-07",Computer Vision Engineer,TCK-D01,3,Medium
+TCK-E01,FFmpeg Final Composition and Non-Destructive Edit List,Phase E,"REQ-CMP-01, REQ-CMP-03, REQ-CMP-04",Video Systems Engineer,TCK-D02,3,Medium
+TCK-E02,Multi-Tier Content-Addressed Scene Caching,Phase E,REQ-CMP-02,Backend Engineer,TCK-E01,2,Low
+TCK-F01,FSM State Machine and Core 13 MCP Tools,Phase F,"REQ-005, REQ-MCP-01, REQ-MCP-02, REQ-MCP-03, REQ-MCP-04, REQ-MCP-05",MCP Engineer,TCK-E02,4,Low
+TCK-F02,Director Skill Authoring,Phase F,REQ-DOC-01 through REQ-DOC-07,Prompt / AI Engineer,TCK-F01,2,Low
+TCK-G01,Web Control Panel Phase View & Scene Timeline,Phase G,"REQ-UI-01, REQ-UI-02, REQ-UI-03, REQ-UI-04",Frontend Engineer,TCK-F01,4,Low
+TCK-H01,Security Sandbox Audit and Air-Gapped Test Runner,Phase H,"REQ-SEC-01, REQ-SEC-02, REQ-LIC-01",Security Engineer,TCK-G01,3,Low
+TCK-H02,Hardware Acceleration Benchmarks and Pacing Tuning,Phase H,REQ-CFG-03,Performance Engineer,TCK-H01,3,Low

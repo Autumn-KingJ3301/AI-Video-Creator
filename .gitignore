@@ -1,0 +1,151 @@
+# ==============================================================================
+# Reel Engine & AI Video Creator - Git Ignore Configuration
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Dependencies & Package Managers
+# ------------------------------------------------------------------------------
+node_modules/
+**/node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+*.tsbuildinfo
+
+# ------------------------------------------------------------------------------
+# Build Artifacts & Compilations
+# ------------------------------------------------------------------------------
+dist/
+**/dist/
+build/
+**/build/
+.vite/
+**/.vite/
+out-tsc/
+**/*.tsbuildinfo
+**/*.d.ts.map
+**/*.js.map
+reel-engine/tests/**/*.js
+reel-engine/tests/**/*.d.ts
+reel-engine/packages/**/src/**/*.js
+reel-engine/packages/**/src/**/*.d.ts
+
+# ------------------------------------------------------------------------------
+# Engine Runtime State, Caches & Intermediate Media
+# ------------------------------------------------------------------------------
+# Local state persistence (single source of truth for runtime progress)
+.state/
+**/.state/
+
+# Content-addressed render caches and temp clips
+.cache/
+**/.cache/
+
+# Active scene clips & final outputs
+clips/
+**/clips/
+out/
+**/out/
+scenes/
+**/scenes/
+
+# Test integration scratch directories
+.test_integration*/
+**/.test_integration*/
+
+# ------------------------------------------------------------------------------
+# Rendered Media Files (Workspace Root & Generated Assets)
+# ------------------------------------------------------------------------------
+*.mp4
+*.mkv
+*.webm
+*.avi
+*.mov
+*.wav
+*.mp3
+*.aac
+*.m4a
+*.flac
+*.ogg
+
+# Temporary test/debug image frames generated during inspection
+test_*.png
+frame_*.png
+s01_frame.png
+test_sample_s01_frame.png
+
+# ------------------------------------------------------------------------------
+# Python & Manim Artifacts
+# ------------------------------------------------------------------------------
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+media/
+**/media/
+
+# ------------------------------------------------------------------------------
+# Third-party / Research Clones & Large Archives
+# ------------------------------------------------------------------------------
+# Ignore cloned external reference repositories (contain their own .git)
+reel-engine-research/repos/
+# Ignore large bundled archives
+*.zip
+*.tar.gz
+*.tgz
+
+# ------------------------------------------------------------------------------
+# Temporary Scratch & Debug Scripts
+# ------------------------------------------------------------------------------
+scratch/
+scratch_*.mjs
+scratch_*.js
+scratch_*.ts
+test_*.mjs
+test_*.js
+
+# ------------------------------------------------------------------------------
+# Environment Variables & Secret Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ------------------------------------------------------------------------------
+# Operating System & IDE Files
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

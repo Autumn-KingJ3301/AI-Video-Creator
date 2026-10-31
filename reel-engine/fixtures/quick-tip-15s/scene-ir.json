@@ -1,0 +1,81 @@
+{
+  "$schema": "https://reel-engine.dev/schemas/v0.1/scene-ir.json",
+  "core_idea": "Because the gradient points uphill, moving opposite minimizes model loss.",
+  "total_frames": 450,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "s01",
+      "type": "hook",
+      "start_frame": 0,
+      "end_frame": 60,
+      "narration": "Why do AI models optimize with gradient descent?",
+      "intent": "hook scroll with visual loss bowl question",
+      "renderer": "remotion",
+      "layout": "focal_center_label_top",
+      "transition_in": "hard_cut",
+      "events": [
+        { "frame": 0, "kind": "element_in", "description": "Title appears" },
+        { "frame": 30, "kind": "text_event", "description": "Keyword highlight" }
+      ],
+      "assets": [],
+      "send_moment": false
+    },
+    {
+      "id": "s02",
+      "type": "beat",
+      "start_frame": 60,
+      "end_frame": 210,
+      "narration": "Because the gradient points in the steepest uphill direction.",
+      "intent": "show gradient arrow pointing uphill",
+      "renderer": "remotion",
+      "layout": "focal_center_label_top",
+      "transition_in": "zoom_punch",
+      "events": [
+        { "frame": 60, "kind": "element_in", "description": "Uphill gradient vector shows" },
+        { "frame": 120, "kind": "motion_change", "description": "Camera tilt" }
+      ],
+      "assets": [],
+      "send_moment": true
+    },
+    {
+      "id": "s03",
+      "type": "beat",
+      "start_frame": 210,
+      "end_frame": 360,
+      "narration": "So moving backwards against the vector guarantees you descend.",
+      "intent": "invert arrow and roll downward",
+      "renderer": "remotion",
+      "layout": "focal_center_label_top",
+      "transition_in": "swipe",
+      "events": [
+        { "frame": 210, "kind": "element_in", "description": "Opposite vector shown" },
+        { "frame": 300, "kind": "motion_change", "description": "Step animation" }
+      ],
+      "assets": [],
+      "send_moment": false
+    },
+    {
+      "id": "s04",
+      "type": "payoff",
+      "start_frame": 360,
+      "end_frame": 450,
+      "narration": "That's why every training step rolls downhill to the lowest error.",
+      "intent": "reach minimum of bowl with checkmark",
+      "renderer": "remotion",
+      "layout": "focal_center_label_top",
+      "transition_in": "mask_reveal",
+      "events": [
+        { "frame": 360, "kind": "element_in", "description": "Minimum reached" },
+        { "frame": 420, "kind": "text_event", "description": "Takeaway line" }
+      ],
+      "assets": [],
+      "send_moment": false
+    }
+  ],
+  "edit_list": {
+    "scene_order": ["s01", "s02", "s03", "s04"],
+    "muted_scenes": [],
+    "disabled_scenes": []
+  }
+}

@@ -1,0 +1,15 @@
+feature_category,openmontage_score,openchatcut_score,mimic_mcp_score,short_video_maker_score,manim_mcp_score,key_evidence_citations
+Remotion Integration,3,4,3,3,0,"OCC: remotion/render.mjs; OM: remotion-composer/src/CaptionOverlay.tsx; MM: templates/remotion"
+Manim Integration,0,0,0,0,4,"MMCP: manim_mcp/core/renderer.py, code_bridge.py"
+Code Sandboxing & Isolation,1,2,1,0,4,"MMCP: manim_mcp/core/sandbox.py (AST blocker); OCC: media-normalization-admission.ts"
+Safe Area Enforcement,0,1,3,0,0,"MM: src/safe-area.ts (Instagram Reels & TikTok bounding box intersection)"
+Audio Loudness QA (-14 LUFS),2,2,4,1,0,"MM: src/loudness.ts (parseLoudnorm target -14 LUFS, true-peak -1 dBTP)"
+Visual Quality / Contrast QA,1,1,3,0,2,"MM: src/frame-quality.ts (gray raster brightness, contrast, gradient detail)"
+Monotony / Slideshow Risk Scoring,3,2,1,0,0,"OM: lib/slideshow_risk.py (6 dimensions); OCC: src/agent/sceneQuality.ts"
+Speech Landmark & Cut Alignment,3,3,2,1,0,"OM: lib/verify_scene_pacing.py; OCC: server/media-timecode.ts"
+MCP Protocol Compliance,0,3,3,2,4,"MMCP: manim_mcp/server.py (FastMCP); OCC: server/agent-runs; MM: src/index.ts"
+Local UI Controls,2,4,1,3,1,"OCC: desktop/ & src/ (NLE); SVM: src/ui/App.tsx; OM: backlot/server.py"
+Preset & Style System,2,2,3,1,1,"MM: src/presets.ts (Zod schema); OM: styles/ and config.yaml"
+Queue Persistence & Recovery,2,3,1,0,2,"OCC: src/agent/serverRunRecovery.ts; OM: lib/checkpoint.py; SVM: memory array (0)"
+License Permissiveness,0,0,4,4,4,"OM/OCC: AGPL-3.0 (score 0); MM/SVM/MMCP: MIT (score 4)"
+Composite Score,19,27,29,16,22,Total evaluation out of 52 possible points

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "reel-engine": {
+      "command": "node",
+      "args": [
+        "D:/Projects/AI Video Creator/reel-engine/dist/mcp-server/src/index.js"
+      ],
+      "env": {}
+    }
+  }
+}

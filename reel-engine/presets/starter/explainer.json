@@ -1,0 +1,53 @@
+{
+  "name": "Explainer (30s)",
+  "description": "One concept with a visual demonstration. Structure: Hook (0-3s) / Setup (3-7s) / 2-3 Beats (7-24s) / Payoff (24-28s) / Loop (28-30s)",
+  "format": {
+    "preset": "reel_9x16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "safe_zone": { "top": 0.14, "bottom": 0.35, "side": 0.06 },
+    "center_crop_check": "3:4"
+  },
+  "duration": { "target_s": 30, "min_s": 25, "max_s": 35 },
+  "pacing": {
+    "preset": "punchy",
+    "hook_deadline_s": 1.0,
+    "hook_complete_s": 3.0,
+    "change_interval_s": [1.5, 3.0],
+    "max_static_s": 2.5
+  },
+  "style": {
+    "preset": "clean_dark",
+    "palette": ["#0B0F1A", "#F5F7FA", "#4DA3FF", "#FFC857"],
+    "fonts": { "display": "Inter", "body": "Inter" },
+    "motion": "snappy"
+  },
+  "captions": {
+    "mode": "phrase",
+    "max_words": 7,
+    "position": "upper_mid",
+    "highlight": "keyword",
+    "reading_speed_cps": 18
+  },
+  "transitions": {
+    "allowed": ["hard_cut", "zoom_punch", "swipe", "mask_reveal", "match_cut"],
+    "max_heavy_per_10s": 1
+  },
+  "audio": {
+    "input_source": "both",
+    "loudness_lufs": -14,
+    "duck_music_db": -12,
+    "tighten_pauses_s": 0.35,
+    "lead_frames": 3,
+    "voice_id": "af_heart"
+  },
+  "export": {
+    "draft": "540x960@24",
+    "final": "1080x1920@30",
+    "codec": "h264",
+    "encoder": "h264_nvenc",
+    "hardware_acceleration": true,
+    "container": "mp4"
+  }
+}

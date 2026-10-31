@@ -1,0 +1,59 @@
+req_id,requirement_summary,openmontage_status,openchatcut_status,mimic_mcp_status,short_video_maker_status,manim_mcp_status,best_candidate,missing_work_adaptation_strategy,confidence
+REQ-001,End-to-end vertical 9:16 video generation,Partial,Implemented,Partial,Implemented,Absent,Adapt (SVM + MM),Combine SVM server/pipeline with MM quality gates,High
+REQ-002,Social platform publishing non-goal,Absent,Absent,Absent,Absent,Absent,Defer,Out of scope for v0.1,High
+REQ-003,Platform analytics ingestion non-goal,Absent,Absent,Absent,Absent,Absent,Defer,Out of scope for v0.1,High
+REQ-004,Multi-language typography non-goal,Partial,Absent,Absent,Absent,Absent,Defer,Focus on English Latin typography for v0.1,High
+REQ-005,Agent as director MCP/UI as production crew,Concept,Partial,Partial,Partial,Implemented,New Implementation,Build strict phased MCP state machine orchestrator,High
+REQ-DOC-01,Single-sentence core idea enforcement,Concept,Absent,Absent,Absent,Absent,New Implementation,Add validator rejecting conjunctions ("and"),High
+REQ-DOC-02,Hook event in frame 1 complete by second 3.0,Heuristic,Absent,Partial,Absent,Absent,New Implementation,Enforce event in frame 1 and duration ceiling in IR linter,High
+REQ-DOC-03,Max static interval budget (<= 2.5s),Partial,Advisory,Absent,Absent,Absent,Adapt (OM concept),Cleanroom TypeScript implementation of frame-difference linter,High
+REQ-DOC-04,Text and visuals inside safe zone & 3:4 crop,Absent,Advisory,Implemented,Absent,Absent,Reuse As-Is (MM),Use mimic-mcp bounding box collision algorithm,High
+REQ-DOC-05,At least one send moment,Absent,Absent,Absent,Absent,Absent,New Implementation,Add boolean send_moment flag to Scene IR schema,High
+REQ-DOC-06,End on payoff and design loop,Absent,Absent,Absent,Absent,Partial,New Implementation,Add rubric validation in submit_review gate,High
+REQ-DOC-07,Consistent motion language across renderers,Partial,Absent,Partial,Absent,Partial,New Implementation,Define unified ProjectConfig style tokens,High
+REQ-CFG-01,Modular independent preset layers,Partial,Partial,Implemented,Partial,Partial,Adapt (MM),Extend mimic-mcp Zod schema to support all 8 preset layers,High
+REQ-CFG-02,Default format preset reel_9x16,Partial,Partial,Implemented,Implemented,Partial,Reuse As-Is (MM),Adopt MM output schema: 1080x1920 @ 30fps,High
+REQ-CFG-03,Pacing presets (punchy balanced calm),Heuristic,Absent,Absent,Absent,Absent,New Implementation,Author preset JSON files with parameterized static limits,High
+REQ-CFG-04,Bundle 4 starter presets,Partial,Absent,Partial,Absent,Absent,New Implementation,Create Quick Tip Explainer Story and Concept presets,High
+REQ-SIR-01,Canonical scene types,Absent,Absent,Partial,Absent,Absent,New Implementation,Define Zod enum for 7 canonical scene types,High
+REQ-SIR-02,Mandatory Scene IR fields,Partial,Partial,Partial,Partial,Partial,New Implementation,Formalize Section 5.2 Scene IR JSON schema,High
+REQ-SIR-03,Frame-accurate visual events array,Partial,Absent,Absent,Absent,Absent,New Implementation,Implement event schedule in Scene IR with frame delta checks,High
+REQ-TIM-01,Audio is master clock integer frames,Partial,Implemented,Partial,Naive,Floats,Adapt (OCC concept),Use integer frame quantization; cleanroom rewrite GCD frame math,High
+REQ-TIM-02,Whisper word-level timestamps,Partial,Implemented,Implemented,Implemented,Absent,Reuse As-Is (MM/SVM),Integrate local Whisper binary or whisper.cpp runner,High
+REQ-TIM-03,Optional pause tightening,Absent,Absent,Absent,Absent,Absent,New Implementation,Add silence detection filter in FFmpeg to trim unvoiced gaps,Medium
+REQ-TIM-04,Snap cuts to speech phrase ends,Implemented,Partial,Absent,Absent,Absent,Adapt (OM concept),Cleanroom algorithm snapping scene bounds to Whisper word breaks,High
+REQ-REN-01,Route motion graphics to Remotion,Implemented,Implemented,Implemented,Implemented,Absent,Adapt (MM + OCC),Use headless Remotion bundling with OCC hardware acceleration,High
+REQ-REN-02,Route math & science to Manim,Absent,Absent,Absent,Absent,Implemented,Direct Reuse (MMCP),Encapsulate manim-mcp worker as Manim adapter,High
+REQ-REN-03,Render isolated mute scene clips,Absent,Absent,Absent,Absent,Implemented,Adapt (MMCP concept),Render scenes individually to content-addressed MP4 files,High
+REQ-REN-04,Shared scene helper library,Partial,Absent,Absent,Absent,Partial,New Implementation,Author shared styling API in TS (Remotion) and Python (Manim),High
+REQ-TRN-01,Transition library (cut zoom swipe),Partial,Partial,Partial,Absent,Absent,New Implementation,Implement Remotion transition wrappers and Manim transforms,High
+REQ-TRN-02,Heavy transition budget enforcement,Absent,Absent,Absent,Absent,Absent,New Implementation,Linter counts non-hard cuts per 10s of project runtime,High
+REQ-TRN-03,Element entrances ease out (6-12 frames),Partial,Absent,Partial,Absent,Partial,New Implementation,Package standard cubic-bezier easing tokens into helper library,High
+REQ-TYP-01,Phrase captions with keyword highlight,Implemented,Absent,Implemented,Partial,Absent,Adapt (OM + MM),Combine OM Remotion component with MM event parser,High
+REQ-TYP-02,Minimum reading dwell time (17-20 cps),Absent,Absent,Absent,Absent,Absent,New Implementation,Deterministic linter rule: dwell_frames >= (chars / 18) * fps,High
+REQ-TYP-03,Text contrast against sampled pixels,Absent,Absent,Implemented,Absent,Absent,Reuse As-Is (MM),Use MM luma variance and contrast math on frame crops,High
+REQ-QA-01,Render completion gate (exit code 0),Partial,Implemented,Partial,Absent,Implemented,Adapt (MMCP/OCC),Wrap process execution with strict zero-exit verification,High
+REQ-QA-02,Duration match gate (exact frame count),Absent,Partial,Partial,Absent,Partial,New Implementation,ffprobe frame counting compared against IR frame delta,High
+REQ-QA-03,Hook event gate,Absent,Absent,Absent,Absent,Absent,New Implementation,Linter checks event in frame 1 and frame diff by second 3,High
+REQ-QA-04,Static interval gate (no static > 2.5s),Absent,Advisory,Absent,Absent,Absent,New Implementation,FFmpeg mpdecimate or pixel difference analysis over windows,High
+REQ-QA-05,Safe zone & 3:4 crop blocking gate,Absent,Advisory,Implemented,Absent,Absent,Reuse As-Is (MM),Direct invocation of checkSafeArea() blocking on violations,High
+REQ-QA-06,Audio loudness gate (-14 LUFS),Partial,Partial,Implemented,Partial,Absent,Reuse As-Is (MM),Call parseLoudnorm() and reject if loudness outside -14 +-1 LUFS,High
+REQ-QA-07,Transition budget gate,Absent,Absent,Absent,Absent,Absent,New Implementation,IR check calculating heavy transitions per 10s,High
+REQ-QA-08,Advisory visual quality review,Absent,Partial,Absent,Absent,Partial,Adapt (OCC vision),Optional LLM vision prompt evaluating sampled frame clutter,Medium
+REQ-CMP-01,FFmpeg composition captions audio mix,Partial,Partial,Partial,Partial,Absent,New Implementation,FFmpeg filter graph: concat clips burn ASS/SRT loudnorm mux,High
+REQ-CMP-02,Content-addressed scene caching,Implemented,Absent,Absent,Absent,Partial,Adapt (OM concept),Compute SHA-256 of IR + code + style + audio slice,High
+REQ-CMP-03,Non-destructive export edit list,Absent,Partial,Absent,Absent,Absent,New Implementation,Apply trims toggles and reordering in final FFmpeg concat file,High
+REQ-CMP-04,Draft (540x960) vs final (1080x1920),Partial,Implemented,Absent,Absent,Implemented,Adapt (OCC/MMCP),Map render profile parameter to canvas scale and fps flags,High
+REQ-MCP-01,Strict linear phase state machine,Absent,Partial,Partial,Partial,Partial,New Implementation,Finite State Machine rejecting illegal transitions,High
+REQ-MCP-02,Unified response envelope (phase status),Absent,Partial,Absent,Absent,Partial,New Implementation,Standardized JSON envelope wrapping all tool outputs,High
+REQ-MCP-03,get_next_step recovery tool,Absent,Absent,Absent,Absent,Absent,New Implementation,Inspects project state and returns actionable next step,High
+REQ-MCP-04,Core 13 MCP tools,Absent,Partial,Partial,Partial,Partial,New Implementation,Implement all 13 tools defined in Section 12.2,High
+REQ-MCP-05,Rubric gate before compose,Absent,Absent,Absent,Absent,Absent,New Implementation,Reject compose if rubric has any 0 or sum below threshold,High
+REQ-UI-01,UI displays phase scenes timeline,Partial,Implemented,Absent,Implemented,Absent,Adapt (SVM UI),Adapt SVM React web UI to show Reel Engine project state,High
+REQ-UI-02,UI displays deterministic lint reports,Absent,Partial,Absent,Absent,Absent,New Implementation,Render structured lint errors on timeline scenes,High
+REQ-UI-03,UI integrated video preview player,Implemented,Implemented,Absent,Implemented,Absent,Adapt (SVM UI),HTML5 video player playing clips and final export,High
+REQ-UI-04,UI generates agent bootstrap prompts,Absent,Absent,Absent,Absent,Absent,New Implementation,UI prompt panel generating phase-specific agent kickoffs,High
+REQ-UI-05,UI non-destructive post-production edits,Absent,Implemented,Absent,Absent,Absent,New Implementation,Add scene reorder/trim controls modifying edit list,High
+REQ-SEC-01,AST security sandbox for Manim code,Absent,Absent,Absent,Absent,Implemented,Direct Reuse (MMCP),Wire CodeSandbox into Manim scene compilation gate,High
+REQ-SEC-02,Sandboxed execution no network in render,Implemented,Partial,Absent,Absent,Partial,Adapt (OM/MMCP),Execute renderer processes in air-gapped sandbox,High
+REQ-LIC-01,Clean permissive licensing (MIT/Apache),Fails,Fails,Passes,Passes,Passes,Cleanroom Arch,Core engine built under MIT/Apache using MM SVM and MMCP,High

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reel Engine Studio</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --bg-canvas: #F4F0EA;
+      --text-dark: #141413;
+      --accent-terracotta: #C84B22;
+      --border-warm: #E6E0D5;
+      --card-white: #FFFFFF;
+    }
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="antialiased p-6 min-h-screen">
+  <div class="max-w-7xl mx-auto space-y-6">
+
+    <!-- Header Navigation -->
+    <header class="bg-white rounded-2xl border border-[#E6E0D5] p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-[#C84B22] flex items-center justify-center text-white font-bold text-xl shadow-sm">
+          ▶
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-xl font-bold tracking-tight text-[#141413]">Reel Engine Studio</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#FCEEE9] text-[#C84B22] border border-[#F6D5CA]">Corsela Theme</span>
+          </div>
+          <p class="text-xs text-[#6E6962]">Autonomous 9:16 Short-Form Video Generator · MCP Connected</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span class="w-2 h-2 mr-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          MCP Server Ready
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200">
+          NVIDIA RTX 3060 Ti (NVENC)
+        </span>
+      </div>
+    </header>
+
+    <!-- Phase Stepper Tracker -->
+    <div class="bg-white rounded-2xl border border-[#E6E0D5] p-5 shadow-sm">
+      <div class="flex items-center justify-between text-xs font-semibold text-[#6E6962] mb-3">
+        <span>LIFECYCLE PIPELINE PROGRESS</span>
+        <span class="text-[#C84B22] font-bold">100% Ready for Composition</span>
+      </div>
+      <div class="grid grid-cols-3 md:grid-cols-8 gap-2 text-center text-xs">
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">1. Init ✓</div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">2. Transcribe ✓</div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">3. Plan IR ✓</div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">4. Lint ✓</div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">5. Author ✓</div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">6. Render ✓</div>
+        <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold">7. Gates ✓</div>
+        <div class="p-2.5 rounded-xl bg-[#C84B22] text-white font-bold shadow-sm">8. Exported ★</div>
+      </div>
+    </div>
+
+    <!-- Main Studio Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left Column: Timeline & Quality Gates (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Scene Timeline -->
+        <div class="bg-white rounded-2xl border border-[#E6E0D5] p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-bold text-[#141413]">Active Scene IR & Timeline</h2>
+            <span class="text-xs bg-[#F4F0EA] px-2.5 py-1 rounded-lg text-[#141413] font-mono">30.0s (900 frames @ 30fps)</span>
+          </div>
+
+          <!-- Scene 1 -->
+          <div class="border border-[#E6E0D5] rounded-xl p-4 hover:border-[#C84B22] transition-colors relative overflow-hidden">
+            <div class="absolute top-0 left-0 bottom-0 w-1.5 bg-[#C84B22]"></div>
+            <div class="flex items-center justify-between mb-1 pl-2">
+              <div class="flex items-center space-x-2">
+                <span class="font-mono text-xs font-bold text-[#C84B22]">01</span>
+                <span class="font-bold text-sm text-[#141413]">s01: Scroll-Stop Hook</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">Remotion TSX</span>
+              </div>
+              <span class="text-xs text-[#6E6962] font-mono">0 - 90f (3.0s)</span>
+            </div>
+            <p class="text-xs text-[#6E6962] pl-2 mb-2 italic">"AI generated code? Get a code audit. Launch confidently."</p>
+            <div class="flex gap-2 pl-2 text-[11px]">
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Entrance: frame 0</span>
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Cut: Hard</span>
+              <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-medium">Safe Zone: Clear</span>
+            </div>
+          </div>
+
+          <!-- Scene 2 -->
+          <div class="border border-[#E6E0D5] rounded-xl p-4 hover:border-[#C84B22] transition-colors relative overflow-hidden">
+            <div class="absolute top-0 left-0 bottom-0 w-1.5 bg-[#C84B22]"></div>
+            <div class="flex items-center justify-between mb-1 pl-2">
+              <div class="flex items-center space-x-2">
+                <span class="font-mono text-xs font-bold text-[#C84B22]">02</span>
+                <span class="font-bold text-sm text-[#141413]">s02: The Proposition Card</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">Remotion TSX</span>
+              </div>
+              <span class="text-xs text-[#6E6962] font-mono">90 - 270f (6.0s)</span>
+            </div>
+            <p class="text-xs text-[#6E6962] pl-2 mb-2 italic">"I help founders review, fix, and launch AI-built applications."</p>
+            <div class="flex gap-2 pl-2 text-[11px]">
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Transition: Zoom Punch</span>
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Layout: Editorial Card</span>
+              <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-medium">Pacing: 2.0s cadence</span>
+            </div>
+          </div>
+
+          <!-- Scene 3 -->
+          <div class="border border-[#E6E0D5] rounded-xl p-4 hover:border-[#C84B22] transition-colors relative overflow-hidden">
+            <div class="absolute top-0 left-0 bottom-0 w-1.5 bg-[#C84B22]"></div>
+            <div class="flex items-center justify-between mb-1 pl-2">
+              <div class="flex items-center space-x-2">
+                <span class="font-mono text-xs font-bold text-[#C84B22]">03</span>
+                <span class="font-bold text-sm text-[#141413]">s03: Mathematical 3-Step Proof</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">Manim Python</span>
+              </div>
+              <span class="text-xs text-[#6E6962] font-mono">270 - 630f (12.0s)</span>
+            </div>
+            <p class="text-xs text-[#6E6962] pl-2 mb-2 italic">"01 Code Issues. 02 Plain Explanations. 03 Prioritized Fix List."</p>
+            <div class="flex gap-2 pl-2 text-[11px]">
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">AST Sandbox: Passed</span>
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Layout: Step List Card</span>
+              <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-medium">Send Moment: Designated</span>
+            </div>
+          </div>
+
+          <!-- Scene 4 -->
+          <div class="border border-[#E6E0D5] rounded-xl p-4 hover:border-[#C84B22] transition-colors relative overflow-hidden">
+            <div class="absolute top-0 left-0 bottom-0 w-1.5 bg-[#C84B22]"></div>
+            <div class="flex items-center justify-between mb-1 pl-2">
+              <div class="flex items-center space-x-2">
+                <span class="font-mono text-xs font-bold text-[#C84B22]">04</span>
+                <span class="font-bold text-sm text-[#141413]">s04: Resolution & Call to Action</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">Remotion TSX</span>
+              </div>
+              <span class="text-xs text-[#6E6962] font-mono">630 - 900f (9.0s)</span>
+            </div>
+            <p class="text-xs text-[#6E6962] pl-2 mb-2 italic">"Launch with total confidence. Request an independent code review."</p>
+            <div class="flex gap-2 pl-2 text-[11px]">
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Button: Terracotta Pill</span>
+              <span class="bg-[#F4F0EA] px-2 py-0.5 rounded text-stone-700">Payoff: Confirmed</span>
+              <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-medium">Loop: Seamless</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deterministic Quality Gates Matrix -->
+        <div class="bg-white rounded-2xl border border-[#E6E0D5] p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-bold text-[#141413]">Quality Gate Battery (10 Deterministic Checks)</h2>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">10 / 10 Passed</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_HOOK_DEADLINE</span>
+              <span class="text-emerald-700 font-bold">✓ &lt; 3.0s</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_VISUAL_PACING</span>
+              <span class="text-emerald-700 font-bold">✓ &le; 2.0s</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_SAFE_ZONE</span>
+              <span class="text-emerald-700 font-bold">✓ 100% In Bounds</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_READING_SPEED</span>
+              <span class="text-emerald-700 font-bold">✓ 15.4 cps (&le;18)</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_CONTRAST_RATIO</span>
+              <span class="text-emerald-700 font-bold">✓ 16.0:1 (WCAG AA)</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_AUDIO_LOUDNESS</span>
+              <span class="text-emerald-700 font-bold">✓ -14.0 LUFS</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_AUDIO_CLIPPING</span>
+              <span class="text-emerald-700 font-bold">✓ True Peak &lt; -0.5dB</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_STATIC_LIMIT</span>
+              <span class="text-emerald-700 font-bold">✓ 0 Freezes &gt; 2.5s</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_DURATION_MATCH</span>
+              <span class="text-emerald-700 font-bold">✓ 900 / 900 Frames</span>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl flex items-center justify-between">
+              <span class="font-medium">GATE_A_V_DRIFT</span>
+              <span class="text-emerald-700 font-bold">✓ Exactly 0 Drift</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: 9:16 Video Player & Agent Prompt Panel (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- 9:16 Video Preview Player -->
+        <div class="bg-white rounded-2xl border border-[#E6E0D5] p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-bold text-[#141413]">9:16 Vertical Video Preview</h2>
+            <button onclick="toggleSafeZone()" id="szBtn" class="text-xs bg-[#F4F0EA] hover:bg-stone-200 px-2.5 py-1 rounded-lg text-[#141413] font-medium transition-colors">
+              Toggle Safe Zones
+            </button>
+          </div>
+
+          <!-- Video Container -->
+          <div class="relative w-full max-w-[320px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-md border border-[#E6E0D5]">
+            <video id="player" class="w-full h-full object-cover" controls playsinline loop autoplay muted>
+              <source src="preview.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Safe Zone Guide Overlay (Toggled via JS) -->
+            <div id="safeZoneOverlay" class="absolute inset-0 pointer-events-none hidden">
+              <!-- Top danger 14% -->
+              <div class="absolute top-0 left-0 right-0 h-[14%] bg-red-500/20 border-b border-red-500/50 flex items-center justify-center">
+                <span class="text-[10px] text-white bg-black/60 px-1.5 py-0.5 rounded font-mono">Top UI Safe Zone (14%)</span>
+              </div>
+              <!-- Bottom danger 35% -->
+              <div class="absolute bottom-0 left-0 right-0 h-[35%] bg-red-500/20 border-t border-red-500/50 flex items-center justify-center">
+                <span class="text-[10px] text-white bg-black/60 px-1.5 py-0.5 rounded font-mono">Bottom Actions Safe Zone (35%)</span>
+              </div>
+              <!-- Left side 6% -->
+              <div class="absolute top-[14%] bottom-[35%] left-0 w-[6%] bg-amber-500/10 border-r border-amber-500/30"></div>
+              <!-- Right side 6% -->
+              <div class="absolute top-[14%] bottom-[35%] right-0 w-[6%] bg-amber-500/10 border-l border-amber-500/30"></div>
+            </div>
+          </div>
+
+          <!-- Non-Destructive Edit List Controls -->
+          <div class="bg-[#F4F0EA] rounded-xl p-4 space-y-3">
+            <h3 class="text-xs font-bold text-[#141413]">Non-Destructive Post-Production</h3>
+            <div>
+              <div class="flex justify-between text-[11px] text-[#6E6962] mb-1">
+                <span>Scene 1 Head Trim (frames)</span>
+                <span id="trimInVal" class="font-mono font-bold text-[#C84B22]">0f</span>
+              </div>
+              <input type="range" min="0" max="30" value="0" class="w-full accent-[#C84B22]" oninput="document.getElementById('trimInVal').innerText = this.value + 'f'">
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] text-[#6E6962] mb-1">
+                <span>Background Music Ducking</span>
+                <span class="font-mono font-bold text-[#C84B22]">-12 dB</span>
+              </div>
+              <input type="range" min="-24" max="-6" value="-12" class="w-full accent-[#C84B22]">
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent Prompt Panel -->
+        <div class="bg-white rounded-2xl border border-[#E6E0D5] p-6 shadow-sm space-y-3">
+          <h2 class="text-base font-bold text-[#141413]">Direct with Antigravity</h2>
+          <p class="text-xs text-[#6E6962]">Copy a directive and send it to Antigravity chat to trigger the MCP workflow autonomously:</p>
+
+          <div class="space-y-2">
+            <div class="p-3 bg-[#F4F0EA] rounded-xl hover:bg-stone-200 transition-colors cursor-pointer text-xs" onclick="copyPrompt(this)">
+              <div class="font-bold text-[#C84B22] mb-0.5">Prompt 1: Full 30s Explainer</div>
+              <div class="text-[#141413] italic">"Create a 30s Corsela-themed video explaining why founders need a code audit before public launch."</div>
+            </div>
+            <div class="p-3 bg-[#F4F0EA] rounded-xl hover:bg-stone-200 transition-colors cursor-pointer text-xs" onclick="copyPrompt(this)">
+              <div class="font-bold text-[#C84B22] mb-0.5">Prompt 2: 15s Quick Tip</div>
+              <div class="text-[#141413] italic">"Create a 15-second punchy quick tip reel showing 3 security mistakes in AI-generated code."</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function toggleSafeZone() {
+      const el = document.getElementById('safeZoneOverlay');
+      const btn = document.getElementById('szBtn');
+      el.classList.toggle('hidden');
+      btn.innerText = el.classList.contains('hidden') ? 'Toggle Safe Zones' : 'Hide Safe Zones';
+    }
+
+    function copyPrompt(el) {
+      const text = el.querySelector('div:last-child').innerText.replace(/^"|"$/g, '');
+      navigator.clipboard.writeText(text);
+      const orig = el.querySelector('div:first-child').innerText;
+      el.querySelector('div:first-child').innerText = '✓ Copied to Clipboard!';
+      setTimeout(() => {
+        el.querySelector('div:first-child').innerText = orig;
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

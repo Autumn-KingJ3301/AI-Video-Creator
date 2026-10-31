@@ -1,0 +1,90 @@
+{
+  "$schema": "https://reel-engine.dev/schemas/v0.1/scene-ir.json",
+  "core_idea": "AI-generated code requires independent audit to uncover risks and launch confidently.",
+  "total_frames": 900,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "s01",
+      "type": "hook",
+      "start_frame": 0,
+      "end_frame": 90,
+      "narration": "AI generated code? Get a code audit. Launch confidently.",
+      "intent": "Hook founder audience with bold question and promise of risk prevention",
+      "renderer": "remotion",
+      "layout": "editorial_hero",
+      "transition_in": "hard_cut",
+      "events": [
+        { "frame": 0, "kind": "element_in", "description": "Editorial header and title reveal" },
+        { "frame": 30, "kind": "text_event", "description": "Terracotta headline highlight" },
+        { "frame": 60, "kind": "motion_change", "description": "Subheadline focus shift" }
+      ],
+      "assets": [],
+      "send_moment": false
+    },
+    {
+      "id": "s02",
+      "type": "beat",
+      "start_frame": 90,
+      "end_frame": 270,
+      "narration": "Your audit includes 01 issues in code, 02 plain explanations, 03 prioritized fixes.",
+      "intent": "Display floating white card with numbered 01, 02, 03 steps",
+      "renderer": "remotion",
+      "layout": "step_list_card",
+      "transition_in": "zoom_punch",
+      "events": [
+        { "frame": 90, "kind": "element_in", "description": "Step 01 Issues in code enters" },
+        { "frame": 150, "kind": "element_in", "description": "Step 02 Plain language explanations enters" },
+        { "frame": 210, "kind": "element_in", "description": "Step 03 Prioritized fix list enters" }
+      ],
+      "assets": [],
+      "send_moment": true
+    },
+    {
+      "id": "s03",
+      "type": "proof",
+      "start_frame": 270,
+      "end_frame": 630,
+      "narration": "Analyzing system reliability gradients and asymptotic loss models.",
+      "intent": "Render mathematical loss curve and gradient vector using vertical Manim",
+      "renderer": "manim",
+      "layout": "vertical_math_graph",
+      "transition_in": "swipe",
+      "events": [
+        { "frame": 270, "kind": "element_in", "description": "Mathematical coordinate axes appear" },
+        { "frame": 330, "kind": "motion_change", "description": "Loss curve begins descending trace" },
+        { "frame": 390, "kind": "element_in", "description": "Gradient vector points along steepest descent" },
+        { "frame": 450, "kind": "motion_change", "description": "Adaptive step size indicator highlights" },
+        { "frame": 510, "kind": "text_event", "description": "Asymptotic convergence equation appears" },
+        { "frame": 570, "kind": "element_in", "description": "Global minimum reached with checkmark" }
+      ],
+      "assets": [],
+      "send_moment": false
+    },
+    {
+      "id": "s04",
+      "type": "payoff",
+      "start_frame": 630,
+      "end_frame": 900,
+      "narration": "Request a code audit and understand the risks before your release.",
+      "intent": "Editorial payoff card with call-to-action button and launch checkmark",
+      "renderer": "remotion",
+      "layout": "editorial_payoff_cta",
+      "transition_in": "hard_cut",
+      "events": [
+        { "frame": 630, "kind": "element_in", "description": "Card appears with checkmark" },
+        { "frame": 690, "kind": "motion_change", "description": "Security audit checklist badge illuminates" },
+        { "frame": 750, "kind": "text_event", "description": "Terracotta Request a Code Audit button highlights" },
+        { "frame": 810, "kind": "motion_change", "description": "Action arrow pulses" },
+        { "frame": 870, "kind": "motion_change", "description": "Seamless loop transition preparation" }
+      ],
+      "assets": [],
+      "send_moment": false
+    }
+  ],
+  "edit_list": {
+    "scene_order": ["s01", "s02", "s03", "s04"],
+    "muted_scenes": [],
+    "disabled_scenes": []
+  }
+}
